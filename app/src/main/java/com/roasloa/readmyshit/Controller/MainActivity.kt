@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.view.Window
 import com.roasloa.readmyshit.Adapters.PoemCoverAdapter
 import com.roasloa.readmyshit.R
 import com.roasloa.readmyshit.Services.PoemDataService
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var adapter: PoemCoverAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_main)
         adapter = PoemCoverAdapter(this, PoemDataService.poemList){poem ->
 

@@ -5,23 +5,31 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Controller.PoemReaderActivity">
+        tools:context=".Controller.PoemReaderActivity" android:id="@+id/readerConstraintLayout"
+        android:backgroundTint="@android:color/darker_gray" android:backgroundTintMode="screen">
 
     <TextView
             android:text="TextView"
             android:layout_width="0dp"
-            android:layout_height="50dp"
+            android:layout_height="45dp"
             android:id="@+id/poemReaderTitle" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:paddingTop="16dp" android:textAlignment="center"
-            android:textColor="@android:color/white" android:background="@android:color/black"/>
+            app:layout_constraintTop_toTopOf="parent" android:paddingTop="15dp" android:textAlignment="center"
+            android:textColor="@android:color/background_light" android:background="@color/colorPrimary"
+            android:textStyle="bold"/>
     <TextView
             android:text="TextView"
-            android:layout_width="0dp"
+            android:layout_width="406dp"
             android:layout_height="0dp"
             android:id="@+id/poemReaderContent"
             app:layout_constraintTop_toBottomOf="@+id/poemReaderTitle" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:paddingBottom="16dp" android:paddingTop="16dp"
-            android:paddingEnd="8dp" android:paddingStart="16dp" android:textAlignment="center"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAlignment="center" android:fontFamily="@font/scope_one"
+            android:paddingStart="1dp"
+            tools:text="dfdsgs"
+            android:gravity="center_vertical" android:shadowColor="@android:color/background_light"
+            android:shadowDx="-1" android:shadowDy="1" android:shadowRadius="2"
+            android:textColor="@android:color/black"/>
+
 </android.support.constraint.ConstraintLayout>

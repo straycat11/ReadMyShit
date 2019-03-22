@@ -15,12 +15,14 @@ class PoemReaderActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE)
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
         setContentView(R.layout.activity_poem_reader)
 
 
 
         val poem = intent.getParcelableExtra<Poem>(EXTRA_POEM_TITLE)
+        val resourceId = this.resources.getIdentifier(poem.image,"drawable",this.packageName)
+        readerConstraintLayout.background = resources.getDrawable(resourceId)
 
         poemReaderTitle.text = poem.title
         poemReaderContent.text = poem.content
