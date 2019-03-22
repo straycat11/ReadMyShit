@@ -21,6 +21,12 @@
         <activity android:name=".Controller.MainActivity">
 
         </activity>
+        <activity android:name=".Controller.WritingMainActivity">
+
+        </activity>
+        <activity android:name=".Controller.WritingReaderActivity">
+
+        </activity>
 
         <meta-data
                 android:name="preloaded_fonts"

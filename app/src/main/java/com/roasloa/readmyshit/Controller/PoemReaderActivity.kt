@@ -1,11 +1,6 @@
 package com.roasloa.readmyshit.Controller
 
 import android.app.Activity
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.Drawable
-import android.media.ThumbnailUtils
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
 import android.view.Window
@@ -31,7 +26,7 @@ class PoemReaderActivity : Activity() {
 
 
 
-        poemReaderTitle.text = poem.title
+        writingReaderTitle.text = poem.title
         poemReaderContent.text = poem.content
         poemReaderContent.movementMethod = ScrollingMovementMethod()
     }

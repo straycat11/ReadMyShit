@@ -12,31 +12,31 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.PopupWindow
 import android.widget.TextView
-import com.roasloa.readmyshit.Adapters.PoemCoverAdapter
-import com.roasloa.readmyshit.Model.Poem
+import com.roasloa.readmyshit.Adapters.WritingCoverAdapter
+import com.roasloa.readmyshit.Model.Writing
 import com.roasloa.readmyshit.R
 import com.roasloa.readmyshit.R.layout.*
-import com.roasloa.readmyshit.Services.PoemDataService
-import com.roasloa.readmyshit.Utilities.EXTRA_POEM_TITLE
+import com.roasloa.readmyshit.Services.WritingDataService
+import com.roasloa.readmyshit.Utilities.EXTRA_WRITING_TITLE
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity() {
+class WritingMainActivity : AppCompatActivity() {
 
-    lateinit var adapter: PoemCoverAdapter
-    lateinit var siir: Poem
+    lateinit var adapter: WritingCoverAdapter
+    lateinit var yazi: Writing
     lateinit var popupWindow: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
 
-        adapter = PoemCoverAdapter(this, PoemDataService.poemList){poem ->
+        adapter = WritingCoverAdapter(this, WritingDataService.writingList){writing ->
 
-            val poemSelectionIntent = Intent(this, PoemReaderActivity::class.java)
-            poemSelectionIntent.putExtra(EXTRA_POEM_TITLE, poem)
-            siir = poem
-//            startActivity(poemSelectionIntent)
+            val writingSelectionIntent = Intent(this, WritingReaderActivity::class.java)
+            writingSelectionIntent.putExtra(EXTRA_WRITING_TITLE, writing)
+            yazi = writing
+//            startActivity(writingSelectionIntent)
 
 
 
@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
             val popupImage = popupView.findViewById<ImageView>(R.id.popupImage)
             val popupText = popupView.findViewById<TextView>(R.id.popupText)
 
-            popupImage.setImageResource(this.resources.getIdentifier(poem.image, "drawable",this.packageName))
-            popupText.text = poem.title
+            popupImage.setImageResource(this.resources.getIdentifier(writing.image, "drawable",this.packageName))
+            popupText.text = writing.title
 
             val width = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,300F,resources.displayMetrics).toInt()
             val height = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,600F,resources.displayMetrics).toInt()
@@ -80,9 +80,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun startReadingBtnClicked(view: View){
-        val poemSelectionIntent = Intent(this, PoemReaderActivity::class.java)
-        poemSelectionIntent.putExtra(EXTRA_POEM_TITLE, siir)
-        startActivity(poemSelectionIntent)
+        val writingSelectionIntent = Intent(this, WritingReaderActivity::class.java)
+        writingSelectionIntent.putExtra(EXTRA_WRITING_TITLE, yazi)
+        startActivity(writingSelectionIntent)
         popupWindow.dismiss()
 
 

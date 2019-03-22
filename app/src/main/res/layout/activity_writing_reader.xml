@@ -20,7 +20,7 @@
     <ImageView
             android:layout_width="0dp"
             android:layout_height="0dp" tools:src="@tools:sample/avatars"
-            android:id="@+id/poemReaderBg" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/writingReaderBg" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/writingReaderTitle" app:layout_constraintBottom_toBottomOf="parent"
             android:scaleType="centerCrop"/>
@@ -28,15 +28,15 @@
             android:text="TextView"
             android:layout_width="406dp"
             android:layout_height="0dp"
-            android:id="@+id/poemReaderContent"
+            android:id="@+id/writingReaderContent"
             app:layout_constraintTop_toBottomOf="@+id/writingReaderTitle" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:textAlignment="center" android:fontFamily="@font/scope_one"
             android:paddingStart="1dp"
             tools:text="dfdsgs"
             android:gravity="center_vertical" android:shadowColor="@android:color/background_light"
             android:shadowDx="-1" android:shadowDy="1" android:shadowRadius="2"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black" app:layout_constraintVertical_bias="0.0"/>
 
 </android.support.constraint.ConstraintLayout>

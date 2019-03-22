@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.roasloa.readmyshit.R
-import com.roasloa.readmyshit.Utilities.EXTRA_POEM_TITLE
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -17,5 +16,10 @@ class WelcomeActivity : AppCompatActivity() {
     fun welcomePoemClk(view: View){
         val poemSelectionIntent = Intent(this, MainActivity::class.java)
         startActivity(poemSelectionIntent)
+    }
+
+    fun welcomeWritingClk(view: View) {
+        val writingSelectionIntent = Intent(this, WritingMainActivity::class.java)
+        startActivity(writingSelectionIntent)
     }
 }
