@@ -2,6 +2,9 @@ package com.roasloa.readmyshit.Controller
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import android.media.ThumbnailUtils
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
@@ -22,7 +25,11 @@ class PoemReaderActivity : Activity() {
 
         val poem = intent.getParcelableExtra<Poem>(EXTRA_POEM_TITLE)
         val resourceId = this.resources.getIdentifier(poem.image,"drawable",this.packageName)
-        readerConstraintLayout.background = resources.getDrawable(resourceId)
+        poemReaderBg.setImageResource(resourceId)
+        poemReaderBg.alpha = 0.35f
+
+
+
 
         poemReaderTitle.text = poem.title
         poemReaderContent.text = poem.content

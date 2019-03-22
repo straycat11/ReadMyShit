@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import com.roasloa.readmyshit.Adapters.PoemCoverAdapter
+import com.roasloa.readmyshit.Model.Poem
 import com.roasloa.readmyshit.R
 import com.roasloa.readmyshit.R.layout.*
 import com.roasloa.readmyshit.Services.PoemDataService
@@ -24,6 +25,8 @@ import kotlinx.android.synthetic.main.popup_window.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var adapter: PoemCoverAdapter
+    lateinit var siir: Poem
+    lateinit var popupWindow: PopupWindow
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +36,7 @@ class MainActivity : AppCompatActivity() {
 
             val poemSelectionIntent = Intent(this, PoemReaderActivity::class.java)
             poemSelectionIntent.putExtra(EXTRA_POEM_TITLE, poem)
+            siir = poem
 //            startActivity(poemSelectionIntent)
 
 
@@ -54,11 +58,12 @@ class MainActivity : AppCompatActivity() {
             Log.d("PIX", "width is $width and the height is $height")
             var focusable = true
 
-            val popupWindow = PopupWindow(popupView, width, height, focusable)
+            popupWindow = PopupWindow(popupView, width, height, focusable)
 
             popupWindow.animationStyle = R.style.Animation_AppCompat_DropDownUp
 
             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
+
 
 
 
@@ -70,5 +75,18 @@ class MainActivity : AppCompatActivity() {
 
         poemRecyclerView.layoutManager = layoutManager
         poemRecyclerView.adapter = adapter
+
+
+
     }
+
+    fun startReadingBtnClicked(view: View){
+        val poemSelectionIntent = Intent(this, PoemReaderActivity::class.java)
+        poemSelectionIntent.putExtra(EXTRA_POEM_TITLE, siir)
+        startActivity(poemSelectionIntent)
+        popupWindow.dismiss()
+
+
+    }
+
 }
