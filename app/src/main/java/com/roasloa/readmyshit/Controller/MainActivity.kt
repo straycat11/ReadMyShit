@@ -18,6 +18,7 @@ import com.roasloa.readmyshit.R
 import com.roasloa.readmyshit.R.layout.*
 import com.roasloa.readmyshit.Services.PoemDataService
 import com.roasloa.readmyshit.Utilities.EXTRA_POEM_TITLE
+import io.alterac.blurkit.BlurKit
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -30,6 +31,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(activity_main)
+        BlurKit.init(this)
+
+
 
         adapter = PoemCoverAdapter(this, PoemDataService.poemList){poem ->
 
@@ -64,8 +68,6 @@ class MainActivity : AppCompatActivity() {
             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
 
 
-
-
         }
 
 
@@ -79,6 +81,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+
     fun startReadingBtnClicked(view: View){
         val poemSelectionIntent = Intent(this, PoemReaderActivity::class.java)
         poemSelectionIntent.putExtra(EXTRA_POEM_TITLE, siir)
@@ -87,5 +91,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+
 
 }
