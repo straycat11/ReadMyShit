@@ -66,6 +66,8 @@ class MainActivity : AppCompatActivity() {
             popupWindow.animationStyle = R.style.Animation_AppCompat_DropDownUp
 
             popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0)
+            bgFadeImg.alpha = 0.5F
+            popupWindow.setOnDismissListener { bgFadeImg.alpha = 0F }
 
 
         }
@@ -91,6 +93,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
 

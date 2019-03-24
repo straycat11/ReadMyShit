@@ -28,6 +28,5 @@ class PoemReaderActivity : Activity() {
 
         writingReaderTitle.text = poem.title
         poemReaderContent.text = poem.content
-        poemReaderContent.movementMethod = ScrollingMovementMethod()
     }
 }
