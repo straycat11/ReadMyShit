@@ -12,9 +12,7 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
-
-        typeWriter.setCharacterDelay(150L)
-        typeWriter.animateText("Hello there!")
+        
     }
 
     fun welcomePoemClk(view: View){

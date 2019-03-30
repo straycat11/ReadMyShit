@@ -5,6 +5,8 @@ import android.content.Context
 import android.os.Handler
 import android.util.AttributeSet
 import android.widget.TextView
+import java.util.*
+import kotlin.random.Random
 
 class TypeWriter: TextView {
 
@@ -15,12 +17,23 @@ class TypeWriter: TextView {
     var mIndex = 0
     var mDelay = 0L
 
+
+
     @SuppressLint("HandlerLeak")
     val mHandler = object : Handler(){
 
     }
 
-    val characterAdder = Runnable { text = mText.subSequence(0, mIndex++) }
+    private var characterAdder: Runnable = object: Runnable {
+        override fun run() {
+            text = mText.subSequence(0,mIndex++)
+
+            if (mIndex <= mText.length) {
+                handler.postDelayed(this, mDelay);
+            }
+        }
+
+    }
 
     fun animateText(txt: CharSequence){
         mText = txt
@@ -28,16 +41,12 @@ class TypeWriter: TextView {
 
         text = ""
         mHandler.removeCallbacks(characterAdder)
-        mHandler.postDelayed(characterAdder, mDelay)
+        mHandler.postDelayed(characterAdder, Random.nextLong(mDelay-mDelay/4,mDelay+mDelay/4))
 
     }
 
     fun setCharacterDelay(m: Long){
         mDelay = m
     }
-
-
-
-
 
 }

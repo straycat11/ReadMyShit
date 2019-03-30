@@ -27,6 +27,7 @@ class PoemReaderActivity : Activity() {
 
 
         writingReaderTitle.text = poem.title
-        poemReaderContent.text = poem.content
+        poemReaderContent.setCharacterDelay(150L)
+        poemReaderContent.animateText(poem.content)
     }
 }
